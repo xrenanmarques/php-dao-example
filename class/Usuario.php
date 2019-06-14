@@ -53,7 +53,7 @@ class Usuario {
 			$this->setIdusuario($row['idusuario']);
 			$this->setDeslogin($row['deslogin']);
 			$this->setDessenha($row['dessenha']);
-			$this->setDtcadastro(new DateTime(($row['dtcadastro']));
+			$this->setDtcadastro(new DateTime($row['dtcadastro']));
 		}
 
 	}
@@ -70,8 +70,8 @@ class Usuario {
 		$sql = new Sql();
 
 		return $sql->select("SELECT * FROM tb_usuarios WHERE deslogin LIKE :SEARCH ORDER BY deslogin", array(
-			':SEARCH'=>"%".$login."%";
-		))
+			':SEARCH'=>"%".$login."%"
+		));
 	}
 
 	public function login($login, $senha) {
@@ -89,7 +89,7 @@ class Usuario {
 			$this->setIdusuario($row['idusuario']);
 			$this->setDeslogin($row['deslogin']);
 			$this->setDessenha($row['dessenha']);
-			$this->setDtcadastro(new DateTime(($row['dtcadastro']));
+			$this->setDtcadastro(new DateTime($row['dtcadastro']));
 		} else {
 
 			throw new Exception("Login e/ou senha inválidos");

@@ -6,7 +6,7 @@ class Sql extends PDO {
 
 	public function __construct() {
 
-		$this->conn = new PDO("mysql:host=localhost;dbname=php-dao", "root", "");
+		$this->conn = new PDO("mysql:host=localhost;dbname=phpdao", "root", "");
 
 	}
 
@@ -14,7 +14,7 @@ class Sql extends PDO {
 
 		foreach ($parameters as $key => $value) {
 			
-			$statement->setParam($statement, $key, $value);
+			$this->setParam($statement, $key, $value);
 
 		}
 
@@ -42,7 +42,7 @@ class Sql extends PDO {
 
 		$stmt = $this->query($rawQuery, $params);
 
-		$stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	}
 
